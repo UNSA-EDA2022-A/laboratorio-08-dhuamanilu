@@ -10,25 +10,31 @@ public class Exercise1 {
         obj.tb = new HashLinearProbing(100);
 
         obj.insertarPersona(new Persona("12345678", "Jorge Chamby"));
-        obj.insertarPersona(new Persona("12345679", "Juan Perez"));
-
-        System.out.println(obj.encontrarPersona("12345678"));
-
         obj.eliminarPersona("12345678");
+        obj.insertarPersona(new Persona("29123456", "Raul Gonzalez"));
+        obj.insertarPersona(new Persona("17893665", "Cristiano Ronaldo"));
+        obj.insertarPersona(new Persona("17865665", "Lionel Messi"));
+        obj.insertarPersona(new Persona("14563665", "Luka Modric"));
+        obj.insertarPersona(new Persona("93254565", "Lucas Moura"));
+        obj.insertarPersona(new Persona("87521665", "James Rodriguez"));
+        obj.eliminarPersona("14563665");
+        obj.eliminarPersona("93254565");
 
-        System.out.println(obj.encontrarPersona("12345678"));
+        String result = obj.encontrarPersona("17893665");
+        //System.out.println(result);
+        //obj.tb.displayHashtable();
     }
 
     public void insertarPersona(Persona obj){
-        // Llamar al metodo 'insertHash' modificado
+        tb.insertHash(obj);
     }
 
     public void eliminarPersona(String dni){
-        // Llamar al metodo 'deleteHash' modificado
+        tb.deleteHash(dni);
     }
 
     // Retorna NULL quando no se encontro el dni, y el nombre de la persona si lo encontro
     public String encontrarPersona(String dni){
-        return null;
+        return tb.findHash(dni);
     }    
 }
